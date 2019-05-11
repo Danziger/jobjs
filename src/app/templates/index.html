@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>" />
+    <meta property="og:description" content="<%= htmlWebpackPlugin.options.description %>" />
+    <meta property="og:image" content="https://danziger.github.io/jobjs/screenshots/jobjs.png" />
+    <meta property="og:image:width" content="928" />
+    <meta property="og:image:height" content="928" />
+    <meta property="og:image:alt" content="<%= htmlWebpackPlugin.options.title %>" />
+    <meta property="og:url" content="https://danziger.github.io/jobjs/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@gmzcodes" />
+
+    <link rel="canonical" href="https://danziger.github.io/jobjs/" />
+</head>
+
+<body class="app__base">
+
+    <header class="app__header">
+        <h1 class="app__title"><span role="img" aria-label="Briefcase">💼</span> JobJS</h1>
+    </header>
+
+    <main class="app__main" id="main">
+        <section class="card__root" id="root">
+            <div class="card__preview" id="preview">
+                <div class="card__content" id="content">
+                    <header class="card__header">
+                        <div class="card__prop">
+                            <input class="card__inputLine card__input--small card__headerLevel" placeholder="Junior, Mid, Senior, Lead..." />
+                        </div>
+
+                        <div class="card__prop">
+                            <button class="card__icon card__icon--editable card__headerIcon">🧠</button>
+                            <textarea rows="1" class="card__inputText card__input--big card__headerPosition" placeholder="Frontend Engineer, UX Designer..." style="height: 80px; "></textarea>
+                        </div>
+                    </header>
+
+                    <ul class="card__props" id="general">
+                        <li class="card__prop">
+                            <span class="card__icon">🌎</span>
+                            <textarea rows="1" class="card__inputText" placeholder="Barcelona (Poblenou Area)"></textarea>
+                        </li>
+
+                        <li class="card__prop">
+                            <span class="card__icon">💶</span>
+                            <input class="card__inputLine" placeholder="50 - 65K € + 0.01 - 0.01 %" />
+                        </li>
+
+                        <li class="card__prop">
+                            <span class="card__icon">🔥</span>
+                            <textarea rows="1" class="card__inputText" placeholder="JS, ES6, React, TypeScript, Design Systems, Node.js, MongoDB, Python, AWS..." style="height: 56px; "></textarea>
+                        </li>
+                    </ul>
+
+                    <ul class="card__props" id="additional">
+                        <li class="card__prop">
+                            <button class="card__icon card__icon--editable">👉</button>
+                            <textarea rows="1" class="card__inputText" placeholder="Add additional information about this role"></textarea>
+                        </li>
+                    </ul>
+
+                    <footer class="card__footer">
+                        <button class="card__icon card__icon--editable card__footerIcon">
+                            <span class="card__footerPlaceholderLogo" id="placeholderLogo">🏢</span>
+                            <img hidden class="card__iconLogo" src="" alt="Your Company's Logo" />
+                        </button>
+
+                        <input class="card__inputLine card__input--small card__footerInput" placeholder="Your Company" />
+                        <input class="card__inputLine card__input--small card__footerInput" placeholder="careers@yourcompany.com" />
+                    </footer>
+                </div>
+
+                <div class="card__attribution">Get yours at https://danziger.github.io/jobjs</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app__footer">
+        <a class="app__link" href="https://github.com/Danziger/jobjs">
+            <span class="app__linkIcon" role="img" aria-label="Source Code">👨‍💻</span>
+            <span class="app__linkUnderline">Check it out on GitHub</span>
+        </a>
+    </footer>
+
+</body>
+</html>
