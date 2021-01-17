@@ -28,6 +28,17 @@ export class Card {
     pasteTarget = null;
     focusTarget = null;
 
+    locationPanel = null;
+    salaryPanel = null;
+    iconPanel = null;
+    logoPanel = null;
+
+    icons = Array.from(document.querySelectorAll('.card__icon'));
+    inputs = Array.from(document.querySelectorAll('.card__inputText, .card__inputLine'));
+    resizer = document.querySelector('.card__input--resizer');
+
+    screenshotModeEnabled = false;
+
     data = {
         location: '',
         salary: {
@@ -52,7 +63,7 @@ export class Card {
     constructor() {
         this.root = document.getElementById('root');
         this.preview = document.getElementById('preview');
-        this.props = document.getElementById('props');
+        this.additional = document.getElementById('additional');
 
         // Resize the card to keep image/text proportion:
         this.resizeCard();
@@ -63,7 +74,7 @@ export class Card {
         this.resizeCard = this.resizeCard.bind(this);
 
         window.onresize = this.handleResize = this.handleResize.bind(this);
-        document.onkeypress = this.handleKeyPress = this.handleKeyPress.bind(this);
+        document.onkeydown = this.handleKeyDown = this.handleKeyDown.bind(this);
         document.oninput = this.handleInput = this.handleInput.bind(this);
         document.onchange = this.handleChange = this.handleChange.bind(this);
         document.onpaste = this.handlePaste = this.handlePaste.bind(this);
@@ -72,7 +83,55 @@ export class Card {
     }
 
     save() {
-        console.log('save');
+        console.log('save', !!this);
+    }
+
+    toggleScreenshotMode() {
+        if (this.screenshotModeEnabled) {
+            this.disableScreenshotMode();
+        } else {
+            this.enableScreenshotMode();
+        }
+
+        return this.screenshotModeEnabled;
+    }
+
+    enableScreenshotMode() {
+        this.screenshotModeEnabled = true;
+
+        this.inputs.forEach((input) => {
+            input.setAttribute('spellcheck', false);
+            input.setAttribute('disabled', true);
+        });
+
+        this.icons.forEach((icon) => {
+            icon.setAttribute('disabled', true);
+        });
+
+        const additionalPropsChildren = this.additional.children;
+        const additionalPropsCount = additionalPropsChildren.length;
+        const additionalPropsLastItem = additionalPropsChildren[additionalPropsCount - 1];
+
+        additionalPropsLastItem.style.display = 'none';
+    }
+
+    disableScreenshotMode() {
+        this.screenshotModeEnabled = false;
+
+        this.inputs.forEach((input) => {
+            input.setAttribute('spellcheck', true);
+            input.removeAttribute('disabled');
+        });
+
+        this.icons.forEach((icon) => {
+            icon.removeAttribute('disabled');
+        });
+
+        const additionalPropsChildren = this.additional.children;
+        const additionalPropsCount = additionalPropsChildren.length;
+        const additionalPropsLastItem = additionalPropsChildren[additionalPropsCount - 1];
+
+        additionalPropsLastItem.removeAttribute('style');
     }
 
     resizeCard() {
@@ -129,8 +188,13 @@ export class Card {
         window.requestAnimationFrame(this.resizeCard);
     }
 
-    handleKeyPress(e) {
-        if (e.key === 'Enter' || e.keyCode === 13) {
+    handleKeyDown(e) {
+        const { key, keyCode } = e;
+        const isEnter = key === 'Enter' || keyCode === 13;
+        const isBackspaceOrDelete = key === 'Backspace' || keyCode === 8 || key === 'Backspace' || keyCode === 48;
+        const isEmpty = e.target.value === '';
+
+        if (isEnter || (isEmpty && isBackspaceOrDelete)) {
             e.preventDefault();
 
             this.checkInputs(e.target);
@@ -144,6 +208,9 @@ export class Card {
             sanatizeInput(target);
         } else if (target.tagName === 'TEXTAREA') {
             resizeTextarea(target);
+        } else if (target.classList.contains('card__input--resizable')) {
+            this.resizer.textContent = target.value.trim() || target.placeholder;
+            target.style.width = `${ this.resizer.offsetWidth }px`;
         }
 
         this.pasteTarget = null;
@@ -182,6 +249,16 @@ export class Card {
 
         if (tagName === 'TEXTAREA' || tagName === 'INPUT') {
             this.focusTarget = target;
+        } else if (tagName === 'BUTTON') {
+            if (target.children.length) {
+                const imageSrc = prompt('Enter an image URL: ', target.children[0].src);
+
+                target.children[0].src = imageSrc && imageSrc.trim() || 'https://gmzcodes.com/logo/gmzcodes-t-e-64.png';
+            } else {
+                const char = prompt('Enter an icon or character: ', target.textContent);
+
+                target.textContent = char && char.trim() || '👉';
+            }
         }
     }
 

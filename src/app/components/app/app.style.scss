@@ -3,16 +3,17 @@
     &__base {
         position: relative;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        // flex-direction: column;
+        // justify-content: space-between;
         user-select: none;
-        max-width: 800px;
+        // max-width: 800px;
         margin: 0 auto;
         font-size: 16px;
         line-height: 16px;
     }
 
-    &__header {
+    &__nav {
+        position: fixed;
         box-shadow: 0 64px 128px -40px rgba(0, 0, 0, .25);
     }
 
@@ -28,12 +29,26 @@
     &__main {
         position: relative;
         // padding: 16px;
-        flex: 1 0 auto;
-        height: 0;
+        width: 50%;
+        // height: 0;
         overflow: hidden;
         display: flex;
         align-items: center;
+        flex-direction: column;
         justify-content: center;
+    }
+
+    &__content {
+        width: 50%;
+        background: #FEE;
+        padding: 128px 32px 32px;
+        box-sizing: border-box;
+    }
+
+    &__container {
+        max-width: 520px;
+        margin: 0 auto;
+
     }
 
     &__link {
@@ -60,6 +75,26 @@
 
         &:hover > &Underline {
             box-shadow: 0 2px 0 0 #00F;
+        }
+    }
+
+    &__button {
+        margin: 32px 0 0 0;
+        padding: 8px 32px;
+        background: blue;
+        color: white;
+        border-radius: 512px;
+        font-family: monospace;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: bold;
+        border: 0;
+        outline: none;
+        cursor: pointer;
+        text-transform: uppercase;
+
+        &:hover {
+            background: #00A;
         }
     }
 }

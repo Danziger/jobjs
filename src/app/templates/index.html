@@ -21,12 +21,22 @@
 
 <body class="app__base">
 
-    <header class="app__header">
+    <nav class="app__nav">
         <h1 class="app__title"><span role="img" aria-label="Briefcase">💼</span> JobJS</h1>
-    </header>
+    </nav>
 
-    <main class="app__main" id="main">
-        <section class="card__root" id="root">
+    <section class="app__content">
+
+        <div class="app__container">
+            <h2>How to generate a job post image using JobJS</h2>
+            <p>Simply fill in the form on the right and click the "download image" button.</p>
+            <p>You can customize the seniority level, role, location, compensation, core techs or skills, all the emojis and your company name, email and logo!</p>
+        </div>
+
+    </section>
+
+    <section class="app__main" id="main">
+        <div class="card__root" id="root">
             <div class="card__preview" id="preview">
                 <div class="card__content" id="content">
                     <header class="card__header">
@@ -66,26 +76,71 @@
 
                     <footer class="card__footer">
                         <button class="card__icon card__icon--editable card__footerIcon">
-                            <span class="card__footerPlaceholderLogo" id="placeholderLogo">🏢</span>
-                            <img hidden class="card__iconLogo" src="" alt="Your Company's Logo" />
+                            <!-- <span class="card__footerPlaceholderLogo" id="placeholderLogo">🏢</span> -->
+                            <img hidden class="card__iconLogo" src="https://gmzcodes.com/logo/gmzcodes-t-e-64.png" alt="Your Company's Logo" />
                         </button>
 
-                        <input class="card__inputLine card__input--small card__footerInput" placeholder="Your Company" />
+                        <div class="card__inputLine card__input--small card__input--resizer card__footerInput"></div>
+
+                        <input class="card__inputLine card__input--small card__input--resizable card__footerInput" placeholder="Your Company" style="width: 130px;" />
                         <input class="card__inputLine card__input--small card__footerInput" placeholder="careers@yourcompany.com" />
                     </footer>
                 </div>
 
                 <div class="card__attribution">Get yours at https://danziger.github.io/jobjs</div>
             </div>
-        </section>
-    </main>
 
+            <!--<div class="panel__root">
+                <div class="panel__popup">
+                    <header class="panel__header">
+                        <h2 class="panel__title">Salary Options</h2>
+                    </header>
+
+                    <div class="panel__content">
+
+                        <div class="panel__fieldset">
+                            <div class="panel__legend">Base Salary</div>
+
+                            <label class="panel__label">
+                                <span class="panel__labelText">From</span>
+                                <input class="panel__input" placeholder="From" />
+                            </label>
+
+                            <label class="panel__label">
+                                <span class="panel__labelText">To</span>
+                                <input class="panel__input" placeholder="To" />
+                            </label>
+                        </div>
+
+                        <div class="panel__fieldset">
+                            <div class="panel__legend">Equity</div>
+
+                            <label class="panel__label">
+                                <span class="panel__labelText">From</span>
+                                <input class="panel__input" placeholder="From" />
+                            </label>
+
+                            <label class="panel__label">
+                                <span class="panel__labelText">To</span>
+                                <input class="panel__input" placeholder="To" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+
+        <button class="app__button" id="screenshotButton">Save</button>
+    </section>
+
+    <!--
     <footer class="app__footer">
         <a class="app__link" href="https://github.com/Danziger/jobjs">
             <span class="app__linkIcon" role="img" aria-label="Source Code">👨‍💻</span>
             <span class="app__linkUnderline">Check it out on GitHub</span>
         </a>
     </footer>
+    -->
 
 </body>
 </html>

@@ -5,7 +5,7 @@
 </p><p align="center">
     🚀 Try it out at <a href="https://danziger.github.io/jobjs">danziger.github.io/jobjs</a>!
 </p><p align="center">
-    🔥 Looking for the very best engineers? Get in touch with us <a href="https://bravalab.com">bravalab.com</a>! 
+    🔥 Looking for the very best engineers? Get in touch with us <a href="https://bravalab.com">bravalab.com</a>!
 </p><p align="center">
     💩 No IE or Edge.
 </p>
@@ -41,19 +41,23 @@ Don't hesitate to report any issue you find in this website/project by opening a
 Ongoing Work (TODOs)
 --------------------
 
-- Use spellcheck="false" in screenshot mode!
+MVP:
 
-- Basic props validator.
+- Side by side layout.
+- Explanation to take screenshot.
+- Constantly save data (display a spinner)?
+- Add screenshot mode.
+- Customizable image.
+- Customizable icons: https://github.com/joeattardi/emoji-button
+
+
+V1:
 
 - Location and salary menus.
-
-- Constantly save data (display a spinner)?
-
+- Basic props validator.
 - Keys navigation.
-
 - Drag and drop (resort).
-
-- Add screenshot mode.
+- Add main language.
 
 <br />
 
