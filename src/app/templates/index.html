@@ -21,6 +21,7 @@
 
 <body class="app__base">
 
+    <!--
     <nav class="app__nav">
         <h1 class="app__title"><span role="img" aria-label="Briefcase">💼</span> JobJS</h1>
     </nav>
@@ -34,6 +35,7 @@
         </div>
 
     </section>
+    -->
 
     <section class="app__main" id="main">
         <div class="card__root" id="root">
@@ -53,12 +55,12 @@
                     <ul class="card__props" id="general">
                         <li class="card__prop">
                             <span class="card__icon">🌎</span>
-                            <textarea rows="1" class="card__inputText" placeholder="Barcelona (Poblenou Area)"></textarea>
+                            <textarea rows="1" class="card__inputText" placeholder="Remote (CEST ± 4 hours)"></textarea>
                         </li>
 
                         <li class="card__prop">
                             <span class="card__icon">💶</span>
-                            <input class="card__inputLine" placeholder="50 - 65K € + 0.01 - 0.01 %" />
+                            <input class="card__inputLine" placeholder="50 - 100K € + 0.01 - 0.01 %" />
                         </li>
 
                         <li class="card__prop">
@@ -76,8 +78,8 @@
 
                     <footer class="card__footer">
                         <button class="card__icon card__icon--editable card__footerIcon">
-                            <!-- <span class="card__footerPlaceholderLogo" id="placeholderLogo">🏢</span> -->
-                            <img hidden class="card__iconLogo" src="https://gmzcodes.com/logo/gmzcodes-t-e-64.png" alt="Your Company's Logo" />
+                            <img hidden src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQYV2NgYGD4DwABBAEAcCBlCwAAAABJRU5ErkJggg==" class="card__iconLogo" alt="Your Company's Logo" />
+                            <span class="card__iconLogoPlaceholder" id="placeholderLogo">🏢</span>
                         </button>
 
                         <div class="card__inputLine card__input--small card__input--resizer card__footerInput"></div>
@@ -130,7 +132,9 @@
             </div>-->
         </div>
 
-        <button class="app__button" id="screenshotButton">Save</button>
+        <button class="app__button" id="screenshotButton">Download</button>
+
+        <div class="app__error" id="errorBox" hidden>Oops, something went wrong. Please, try with a different browser.</div>
     </section>
 
     <!--

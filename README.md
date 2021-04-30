@@ -41,23 +41,23 @@ Don't hesitate to report any issue you find in this website/project by opening a
 Ongoing Work (TODOs)
 --------------------
 
-MVP:
-
-- Side by side layout.
-- Explanation to take screenshot.
-- Constantly save data (display a spinner)?
+**TODO:**
+- 2x screenshots?
 - Add screenshot mode.
-- Customizable image.
-- Customizable icons: https://github.com/joeattardi/emoji-button
 
+**V0:**
+- Keys navigation.
+- Customizable image with menu.
+- Customizable icons with menu: https://github.com/joeattardi/emoji-button
 
-V1:
-
+**V1:**
+- Constantly save data (display a spinner)?
 - Location and salary menus.
 - Basic props validator.
-- Keys navigation.
 - Drag and drop (resort).
 - Add main language.
+- Accept icons or images indistinctively.
+
 
 <br />
 

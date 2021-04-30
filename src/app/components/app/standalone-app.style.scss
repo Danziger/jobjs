@@ -12,10 +12,24 @@
         line-height: 16px;
     }
 
+    &__nav {
+        position: fixed;
+        box-shadow: 0 64px 128px -40px rgba(0, 0, 0, .25);
+    }
+
+    &__title {
+        padding: 24px 16px;
+        margin: 0;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 24px;
+        text-align: center;
+    }
+
     &__main {
         position: relative;
         // padding: 16px;
-        width: 100%;
+        width: 50%;
         // height: 0;
         overflow: hidden;
         display: flex;
@@ -23,7 +37,7 @@
         flex-direction: column;
         justify-content: center;
     }
-    /*
+
     &__content {
         width: 50%;
         background: #FEE;
@@ -34,8 +48,8 @@
     &__container {
         max-width: 520px;
         margin: 0 auto;
+
     }
-    */
 
     &__link {
         text-align: center;
@@ -82,15 +96,5 @@
         &:hover {
             background: #00A;
         }
-    }
-
-    &__error {
-        border: 2px solid #FF8888;
-        border-radius: 4px;
-        margin: 32px 16px 0;
-        padding: 8px;
-        width: 520px;
-        max-width: calc(100% - 32px);
-        box-sizing: border-box;
     }
 }
