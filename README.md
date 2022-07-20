@@ -42,6 +42,8 @@ Don't hesitate to report any issue you find in this website/project by opening a
 TODOs
 -----
 
+- Make logo background transparent.
+
 - Emoji picker.
   - https://github.com/joeattardi/emoji-button
   - https://www.npmjs.com/package/emoji-picker-element
