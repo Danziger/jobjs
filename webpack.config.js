@@ -70,41 +70,26 @@ module.exports = (env, argv) => {
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
-                    'postcss-loader', {
-                        loader: 'resolve-url-loader',
-                        options: {
-                            attempts: 1,
-                            sourceMap: false,
-                        },
-                    }, {
-                        loader: 'sass-loader',
-                        options: { sourceMap: true },
-                    },
+                    'postcss-loader',
+                    'sass-loader',
                 ],
-            }, {
-                test: /\.(svg|eot|ttf|woff|woff2)$/,
-                use: {
-                    loader: 'file-loader',
-                    options: {
-                        name: './[name].[hash].[ext]',
-                        outputPath: './static/fonts/',
-                        esModule: false,
-                    },
-                },
             }],
         },
 
         plugins: [
             new ESLintPlugin({ fix: true }),
+
             new HtmlWebpackPlugin({
                 filename: path.resolve(__dirname, 'dist/index.html'),
                 template: path.resolve(__dirname, 'src/app/templates/index.html'),
-                title: 'JobJS / Sharable image summaries for your open positions',
+                title: 'JobJS \\ Sharable image summaries for your open positions',
                 description: 'Share your jobs as an image on LinkedIn and Instagram to get a visibility boost and more applicants!',
                 favicon: path.resolve(__dirname, 'static/favicon.ico'),
                 inlineSource: '.(js|css)$', // Inline JS and CSS.
                 minify: PROD,
                 meta: {
+                    author: pkg.author.name,
+                    description: pkg.description,
                     viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
                 },
                 // We can use templateParameters if more options are required, but it will override all the above.
@@ -127,13 +112,16 @@ module.exports = (env, argv) => {
             }]),
 
             // Defines variables available globally that Webpack can evaluate in compilation time and remove dead code:
-            new webpack.DefinePlugin({}),
+            // new webpack.DefinePlugin({
+            //     'process.env': {},
+            // }),
 
             // Same as before, but sets properties inside `process.env` specifically:
-            new webpack.EnvironmentPlugin({
-                DEV,
-                PROD,
-            }),
+            // new webpack.EnvironmentPlugin({
+            //     DEV,
+            //     PROD,
+            // }),
+
             // new BundleAnalyzerPlugin(),
         ],
 
