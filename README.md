@@ -13,7 +13,7 @@
 
 <p align="center">
     <a href="https://danziger.github.io/jobjs" target="_blank">
-        <img src="./static/screenshots/jobjs.png" width="512" />
+        <img src="./static/screenshots/jobjs.png" />
     </a>
 </p>
 
