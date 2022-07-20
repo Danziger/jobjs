@@ -1,6 +1,5 @@
 const path = require('path');
 
-const webpack = require('webpack');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -9,6 +8,8 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const pkg = require('./package.json');
 
 module.exports = (env, argv) => {
 
@@ -36,7 +37,7 @@ module.exports = (env, argv) => {
         */
 
         output: {
-            filename: PROD ? '[name].[contenthash].js' : '[name].[hash].js',
+            filename: PROD ? '[name].[contenthash].js' : '[name].[fullhash].js',
             path: path.resolve(__dirname, 'dist'),
             publicPath: './',
         },
@@ -96,20 +97,19 @@ module.exports = (env, argv) => {
             }),
 
             new MiniCssExtractPlugin({
-                filename: PROD ? '[name].[contenthash].css' : '[name].[hash].css',
+                filename: PROD ? '[name].[contenthash].css' : '[name].[fullhash].css',
             }),
 
             new StyleLintPlugin({
-                syntax: 'scss',
                 fix: true,
             }),
 
-            new CopyWebpackPlugin([{
+            new CopyWebpackPlugin({
                 patterns: [{
                     from: 'static/screenshots',
                     to: 'static/screenshots',
                 }],
-            }]),
+            }),
 
             // Defines variables available globally that Webpack can evaluate in compilation time and remove dead code:
             // new webpack.DefinePlugin({
