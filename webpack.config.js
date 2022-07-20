@@ -74,6 +74,12 @@ module.exports = (env, argv) => {
                     'postcss-loader',
                     'sass-loader',
                 ],
+            }, {
+                test: /\.ejs$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'ejs-compiled-loader',
+                },
             }],
         },
 
@@ -82,10 +88,10 @@ module.exports = (env, argv) => {
 
             new HtmlWebpackPlugin({
                 filename: path.resolve(__dirname, 'dist/index.html'),
-                template: path.resolve(__dirname, 'src/app/templates/index.html'),
+                template: path.resolve(__dirname, 'src/app/components/app/app.template.ejs'),
                 title: 'JobJS \\ Sharable image summaries for your open positions',
                 description: 'Share your jobs as an image on LinkedIn and Instagram to get a visibility boost and more applicants!',
-                // favicon: path.resolve(__dirname, 'static/favicon.ico'),
+                favicon: path.resolve(__dirname, 'static/favicon.ico'),
                 inlineSource: '.(js|css)$', // Inline JS and CSS.
                 minify: PROD,
                 meta: {
@@ -106,8 +112,7 @@ module.exports = (env, argv) => {
 
             new CopyWebpackPlugin({
                 patterns: [{
-                    from: 'static/screenshots',
-                    to: 'static/screenshots',
+                    from: 'static',
                 }],
             }),
 
@@ -147,10 +152,12 @@ module.exports = (env, argv) => {
         },
     };
 
+    /*
     if (PROD) {
         // TODO: Should I replace this with https://stackoverflow.com/questions/61490604/inline-css-with-webpack-without-htmlwebpackinlinesourceplugin?
         config.plugins.push(new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin));
     }
+    */
 
     return config;
 };

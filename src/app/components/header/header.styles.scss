@@ -1,0 +1,166 @@
+@import '../../styles/mixins/media-queries';
+@import '../../styles/utils/focus';
+
+.header {
+    $root: &;
+
+    &__base {
+        position: relative;
+        background: #fff;
+        z-index: 10;
+        transform: translateZ(0);
+        border-bottom: 1px solid #f0f0f0; // TODO: Create var
+        font-family: 'Press Start 2P', monospace;
+    }
+
+    &__content {
+        max-width: 800px; // TODO: Create var
+        margin: 0 auto;
+        display: flex;
+    }
+
+    &__title {
+        margin: 0;
+    }
+
+    &__logoLink {
+        position: relative;
+        padding: 28px 16px 8px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        overflow: visible;
+
+        #{$focusVisible} &:focus::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            bottom: 4px;
+            left: 4px;
+            border: 1px dotted black;
+        }
+    }
+
+    &__logoImage {
+        width: 32px;
+        pointer-events: none;
+        image-rendering: pixelated;
+        transition: transform ease-in 0.125s;
+
+        @include above(xs) {
+            margin-right: 16px;
+        }
+
+        #{$root}__logoLink:hover > & {
+            image-rendering: auto;
+            transform: scale(1.1);
+        }
+    }
+
+    &__logoText {
+        position: absolute;
+        font-size: 8px;
+        top: 8px;
+        left: 50%;
+        transform: translate(-50%, 0);
+
+        @include above(xs) {
+            position: static;
+            font-size: inherit;
+            transform: none;
+        }
+    }
+
+    &__controls {
+        flex: 1 0 auto;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        padding: 0;
+        justify-content: flex-end;
+        overflow: hidden;
+        box-shadow: inset -1px 0 0 0 #fff, inset 1px 0 0 0 #f0f0f0, inset 0 0 0 1px #fff;
+        background:
+            repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 4px,
+                #f0f0f0 4px,
+                #f0f0f0 5px
+            );
+    }
+
+    &__control {
+        position: relative;
+        align-items: baseline;
+        flex: 0 1 auto;
+        display: flex;
+        box-sizing: border-box;
+        padding: 28px 8px 8px;
+        overflow: hidden;
+        border-left: 1px solid #f0f0f0;
+        background: #fff;
+    }
+
+    &__controlIcon {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        font-size: 10px;
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+
+        @include above(sm) {
+            position: static;
+            padding: 0 16px 0 8px;
+            font-size: 16px;
+            width: 20px;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        &::after {
+            content: attr(aria-label);
+            margin-left: 4px;
+            font-size: 8px;
+        }
+        /*
+        &::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            width: 32px;
+            height: 4px;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            z-index: 1;
+            background: #f00;
+            background-clip: content-box;
+            box-sizing: border-box;
+            transition: padding linear 0.125s;
+            padding-right: 32px;
+        }
+
+        &.is-disabled {
+
+            & > #{$root}__buttonIcon {
+                filter: grayscale(1);
+            }
+
+            &::before {
+                padding-right: 0;
+            }
+        }
+        */
+    }
+
+    &__controlLabel {
+        flex: 1 0 auto;
+        padding: 8px 0;
+        font-size: 12px;
+    }
+}

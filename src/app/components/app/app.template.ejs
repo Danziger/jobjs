@@ -30,10 +30,19 @@
     <meta name="theme-color" content="#000000" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" />
+
     <link rel="canonical" href="https://danziger.github.io/jobjs/" />
+
+    <!-- ANALYTICS & SITE VERIFICATION -->
+
+    <meta name="google-site-verification" content="" />
+    <script defer data-domain="danziger.github.io/jobjs" src="https://plausible.io/js/plausible.js"></script>
 </head>
 
 <body class="app__base">
+
+    <%- include ../header/header.template.ejs %>
 
     <section class="app__main" id="main">
         <div class="card__root" id="root">
@@ -60,7 +69,7 @@
 
                         <li class="card__prop">
                             <span class="card__icon">💶</span>
-                            <textarea rows="1" class="card__inputText" placeholder="50 - 100K €"></textarea>
+                            <textarea rows="1" class="card__inputText" placeholder="$150-200K"></textarea>
                         </li>
 
                         <li class="card__prop">
@@ -94,19 +103,10 @@
 
         </div>
 
-        <button class="app__button" id="screenshotButton">Download</button>
-
         <div class="app__error" id="errorBox" hidden>Oops, something went wrong. Please, try with a different browser.</div>
     </section>
 
-    <!--
-    <footer class="app__footer">
-        <a class="app__link" href="https://github.com/Danziger/jobjs">
-            <span class="app__linkIcon" role="img" aria-label="Source Code">👨‍💻</span>
-            <span class="app__linkUnderline">Check it out on GitHub</span>
-        </a>
-    </footer>
-    -->
+    <%- include ../footer/footer.template.ejs %>
 
 </body>
 </html>

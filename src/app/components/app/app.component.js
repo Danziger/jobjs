@@ -2,11 +2,17 @@ import './app.style.scss';
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 
+
+import '../header/header.styles.scss';
+import '../footer/footer.styles.scss';
+
 import { Card } from '../card/card.component';
 
 export class App {
 
     screenshotButton = document.getElementById('screenshotButton');
+    screenshotButtonIcon = document.getElementById('screenshotButtonIcon');
+    screenshotButtonText = document.getElementById('screenshotButtonText');
     errorBox = document.getElementById('errorBox');
 
     constructor() {
@@ -24,7 +30,9 @@ export class App {
 
         if (isScreenshotModeEnabled) {
             this.screenshotButton.disabled = true;
-            this.screenshotButton.innerText = 'Downloading...';
+            this.screenshotButtonIcon.innerText = '📸';
+            this.screenshotButtonText.style.width = `${ this.screenshotButtonText.offsetWidth }px`;
+            this.screenshotButtonText.innerText = 'Saving...';
 
             domtoimage.toBlob(document.getElementById('preview')).then((blob) => {
                 saveAs(blob, 'job-post-image.png');
@@ -40,12 +48,16 @@ export class App {
                 this.card.toggleScreenshotMode();
 
                 this.screenshotButton.disabled = false;
-                this.screenshotButton.innerText = 'Download';
+                this.screenshotButtonIcon.innerText = '📷';
+                this.screenshotButtonText.style.width = 'auto';
+                this.screenshotButtonText.innerText = 'Save as Image';
             });
         } else {
             // This should not happen, just here in case there's an error:
             this.screenshotButton.disabled = false;
-            this.screenshotButton.innerText = 'Download';
+            this.screenshotButtonIcon.innerText = '📷';
+            this.screenshotButtonText.style.width = 'auto';
+            this.screenshotButtonText.innerText = 'Save as Image';
         }
 
     }
