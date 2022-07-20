@@ -1,21 +1,5 @@
 @import './styles/reset.scss';
 
-@font-face {
-    font-display: swap;
-    font-family: 'Sul Sans';
-    font-weight: 400;
-    src: url('../../static/fonts/sul-sans.woff2') format('woff2'),
-        url('../../static/fonts/sul-sans.woff') format('woff');
-}
-
-@font-face {
-    font-display: swap;
-    font-family: 'Sul Sans';
-    font-weight: 500;
-    src: url('../../static/fonts/sul-sans-medium.woff2') format('woff2'),
-        url('../../static/fonts/sul-sans-medium.woff') format('woff');
-}
-
 // Google Fonts must be included like this for the screenshot to work:
 /* latin-ext */
 @font-face {

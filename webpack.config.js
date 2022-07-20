@@ -42,7 +42,7 @@ module.exports = (env, argv) => {
 
         devServer: {
             contentBase: path.resolve(__dirname, 'static'),
-            publicPath: '/',
+            publicPath: '/jobjs/',
             // When sharing the site using ssh -R 80:localhost:8080 ssh.localhost.run
             // disableHostCheck: true,
         },
@@ -97,8 +97,8 @@ module.exports = (env, argv) => {
             new HtmlWebpackPlugin({
                 filename: path.resolve(__dirname, 'dist/index.html'),
                 template: path.resolve(__dirname, 'src/app/templates/index.html'),
-                // title: 'Swyg's job post image generator tool',
-                // description: 'Share your jobs as an image on LinkedIn and Instagram to get a visibility boost and more amazing candidates!',
+                title: 'JobJS / Sharable image summaries for your open positions',
+                description: 'Share your jobs as an image on LinkedIn and Instagram to get a visibility boost and more applicants!',
                 favicon: path.resolve(__dirname, 'static/favicon.ico'),
                 inlineSource: '.(js|css)$', // Inline JS and CSS.
                 minify: PROD,

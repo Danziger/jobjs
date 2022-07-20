@@ -7,7 +7,7 @@ body {
     line-height: 30px;
     display: flex;
     overflow: hidden;
-    font-family: 'Sul Sans', sans-serif;
+    font-family: 'DM Mono', monospace;
 
     // Uncomment if vertical scaling is enabled:
     // height: 100vh;
@@ -17,4 +17,8 @@ body {
 h1,
 h2 {
     margin: 0;
+}
+
+button {
+    font-family: 'DM Mono', monospace;
 }

@@ -1,7 +1,21 @@
 {
     "name": "jobjs",
     "version": "1.0.0",
-    "description": "🎰 Job description images generator mobile-first SPA built with JavaScript and Emojis!",
+    "description": "🎰 Sharable image summaries for your open positions / Share your jobs as an image on LinkedIn and Instagram to get a visibility boost and more applicants!",
+    "homepage": "https://github.com/Danziger/jobjs#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Danziger/jobjs.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Danziger/jobjs/issues"
+    },
+    "author": {
+        "name": "Daniel Gámez Franco",
+        "email": "gmzcodes@outlook.com",
+        "url": "http://gmzcodes.com"
+    },
+    "license": "MIT",
     "main": "index.js",
     "scripts": {
         "start": "npm run start:dev",
@@ -10,7 +24,7 @@
         "build": "npm run build:prod",
         "build:dev": "webpack --mode development --display-error-details --progress",
         "build:prod": "webpack --mode production --display-error-details --progress",
-        "deploy": "echo \"Error: no deployment specified\" && exit 1",
+        "deploy": "npm run build:prod && gh-pages -d dist",
         "eslint": "eslint src",
         "eslint:fix": "eslint --fix src",
         "stylelint": "stylelint src",
