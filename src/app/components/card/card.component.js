@@ -4,7 +4,10 @@ function resizeTextarea(textarea) {
     const { style } = textarea;
 
     style.height = 'auto';
-    style.height = `${ Math.ceil(textarea.scrollHeight / 8) * 8 }px`;
+
+    window.requestAnimationFrame(() => {
+        style.height = `${ Math.max(Math.ceil(textarea.scrollHeight / 8) * 8, 32) }px`;
+    });
 }
 
 function sanitizeInput(input) {
@@ -49,6 +52,7 @@ export class Card {
 
     constructor() {
         this.root = document.getElementById('root');
+        this.cover = document.getElementById('cover');
         this.preview = document.getElementById('preview');
         this.additional = document.getElementById('additional');
 
@@ -57,6 +61,11 @@ export class Card {
 
         // Resize any textarea with multiline placeholders:
         Array.from(document.querySelectorAll('.card__inputText')).forEach(resizeTextarea);
+
+        // For some reason, doing this a single time doesn't work well on iframes:
+        setTimeout(() => {
+            Array.from(document.querySelectorAll('.card__inputText')).forEach(resizeTextarea);
+        }, 200);
 
         this.resizeCard = this.resizeCard.bind(this);
 
@@ -102,6 +111,9 @@ export class Card {
     enableScreenshotMode() {
         this.screenshotModeEnabled = true;
 
+        this.cover.removeAttribute('hidden');
+        this.preview.removeAttribute('style');
+
         this.inputs.forEach((input) => {
             input.setAttribute('spellcheck', false);
             input.setAttribute('disabled', true);
@@ -129,6 +141,9 @@ export class Card {
 
     disableScreenshotMode() {
         this.screenshotModeEnabled = false;
+
+        this.cover.setAttribute('hidden', true);
+        this.resizeCard();
 
         this.inputs.forEach((input) => {
             input.setAttribute('spellcheck', true);
@@ -159,7 +174,17 @@ export class Card {
         const { root } = this;
         const { SIZE } = Card;
 
+        // Scale to fit vertically and horizontally:
         this.preview.style.transform = `scale(${ Math.min(root.offsetWidth, root.offsetHeight, SIZE) / SIZE })`;
+
+        // Scale to fit horizontally only:
+        /*
+        const scale = Math.min(root.offsetWidth, SIZE) / SIZE;
+        const height = SIZE * scale;
+
+        this.root.style.height = `${ height }px`;
+        this.preview.style.transform = `scale(${ scale })`;
+        */
     }
 
     checkInputs(input) {
@@ -178,13 +203,17 @@ export class Card {
     }
 
     addInput(ul, li) {
+        const additionalPropsChildren = this.additional.children;
+        const additionalPropsCount = additionalPropsChildren.length;
+        const additionalPropsLastItem = additionalPropsChildren[additionalPropsCount - 1];
         const newItem = li.cloneNode(true);
         const newInput = newItem.querySelector('input, textarea');
 
         newInput.value = '';
 
         ul.appendChild(newItem);
-        newInput.focus();
+
+        if (additionalPropsLastItem && additionalPropsLastItem.children[1] === document.activeElement) newInput.focus();
 
         this.save();
     }
@@ -228,7 +257,7 @@ export class Card {
         } else if (target.tagName === 'TEXTAREA') {
             resizeTextarea(target);
         } else if (target.classList.contains('card__input--resizable')) {
-            this.resizer.textContent = target.value.trim() || target.placeholder;
+            this.resizer.textContent = `${ target.value || target.placeholder }\u200c`;
             target.style.width = `${ this.resizer.offsetWidth }px`;
         }
 

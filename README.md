@@ -1,11 +1,9 @@
 <h1 align="center">JobJS</h1>
 
 <p align="center">
-    💼 Job description images generator mobile-first SPA built with JavaScript and Emojis!
+    💼 Sharable image summaries for your open positions: Share your jobs as an image on LinkedIn and Instagram to get a visibility boost and more applicants!
 </p><p align="center">
     🚀 Try it out at <a href="https://danziger.github.io/jobjs">danziger.github.io/jobjs</a>!
-</p><p align="center">
-    🔥 Looking for the very best engineers? Get in touch with us <a href="https://bravalab.com">bravalab.com</a>!
 </p><p align="center">
     💩 No IE or Edge.
 </p>
@@ -27,6 +25,9 @@ Running It (Development)
 
 Take a look at `package.json`, the scripts are self-explanatory.
 
+In short, `npm start` and the project will be accessible at http://localhost:8080/jobjs/.
+
+
 <br />
 
 
@@ -42,22 +43,23 @@ Ongoing Work (TODOs)
 --------------------
 
 **TODO:**
-- 2x screenshots?
-- Add screenshot mode.
+- Nav and footer similar to SlotJS.
+- Customizable icons with menu: https://github.com/joeattardi/emoji-button
+- Constantly save data (display a spinner)?
+- Validate if additional props fit.
 
 **V0:**
-- Keys navigation.
+- 2x screenshots?
+- Add screenshot mode.
 - Customizable image with menu.
-- Customizable icons with menu: https://github.com/joeattardi/emoji-button
+- Keys navigation.
 
 **V1:**
-- Constantly save data (display a spinner)?
 - Location and salary menus.
 - Basic props validator.
 - Drag and drop (resort).
 - Add main language.
-- Accept icons or images indistinctively.
-
+- Accept icons or images indistinctive.
 
 <br />
 

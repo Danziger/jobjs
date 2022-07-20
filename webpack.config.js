@@ -1,10 +1,9 @@
 const path = require('path');
 
-const webpack = require('webpack');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
@@ -18,7 +17,7 @@ module.exports = (env, argv) => {
     const PROD = argv.mode === 'production';
 
     const config = {
-        devtool: DEV ? 'eval-source-map' : false,
+        devtool: DEV ? 'eval-source-map' : 'source-map',
 
         entry: {
             main: [
@@ -38,30 +37,30 @@ module.exports = (env, argv) => {
         */
 
         output: {
-            filename: '[name].js',
+            filename: PROD ? '[name].[contenthash].js' : '[name].[fullhash].js',
             path: path.resolve(__dirname, 'dist'),
             publicPath: './',
         },
 
         devServer: {
-            contentBase: path.resolve(__dirname, 'static'),
-            publicPath: '/jobjs/',
-            // When sharing the site using ssh -R 80:localhost:8080 ssh.localhost.run
-            disableHostCheck: true,
+            static: {
+                directory: path.resolve(__dirname, 'static'),
+            },
+            devMiddleware: {
+                publicPath: '/jobjs/',
+                // When sharing the site using ssh -R 80:localhost:8080 ssh.localhost.run
+                // disableHostCheck: true,
+            },
+            client: {
+                overlay: {
+                    warnings: false,
+                    errors: false,
+                },
+            },
         },
 
         module: {
             rules: [{
-                enforce: 'pre',
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'eslint-loader',
-                    options: {
-                        fix: true,
-                    },
-                },
-            }, {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
@@ -79,12 +78,14 @@ module.exports = (env, argv) => {
         },
 
         plugins: [
+            new ESLintPlugin({ fix: true }),
+
             new HtmlWebpackPlugin({
                 filename: path.resolve(__dirname, 'dist/index.html'),
                 template: path.resolve(__dirname, 'src/app/templates/index.html'),
-                title: 'JobJS / Easily generate brief and eye-catching job description images full of Emojis!',
-                description: pkg.description,
-                favicon: path.resolve(__dirname, 'static/favicon.ico'),
+                title: 'JobJS \\ Sharable image summaries for your open positions',
+                description: 'Share your jobs as an image on LinkedIn and Instagram to get a visibility boost and more applicants!',
+                // favicon: path.resolve(__dirname, 'static/favicon.ico'),
                 inlineSource: '.(js|css)$', // Inline JS and CSS.
                 minify: PROD,
                 meta: {
@@ -94,25 +95,39 @@ module.exports = (env, argv) => {
                 },
                 // We can use templateParameters if more options are required, but it will override all the above.
             }),
+
             new MiniCssExtractPlugin({
-                filename: '[name].css',
+                filename: PROD ? '[name].[contenthash].css' : '[name].[fullhash].css',
             }),
+
             new StyleLintPlugin({
-                syntax: 'scss',
                 fix: true,
             }),
-            new CopyWebpackPlugin([{
-                from: 'static',
-            }]),
-            new webpack.DefinePlugin({
-                'process.env': {
-                    DEVELOPMENT: true,
-                },
+
+            new CopyWebpackPlugin({
+                patterns: [{
+                    from: 'static/screenshots',
+                    to: 'static/screenshots',
+                }],
             }),
+
+            // Defines variables available globally that Webpack can evaluate in compilation time and remove dead code:
+            // new webpack.DefinePlugin({
+            //     'process.env': {},
+            // }),
+
+            // Same as before, but sets properties inside `process.env` specifically:
+            // new webpack.EnvironmentPlugin({
+            //     DEV,
+            //     PROD,
+            // }),
+
             // new BundleAnalyzerPlugin(),
         ],
 
         optimization: {
+            minimize: true,
+
             // Extract all styles in a single file:
             splitChunks: {
                 cacheGroups: {
@@ -126,18 +141,14 @@ module.exports = (env, argv) => {
             },
 
             minimizer: PROD ? [
-                new UglifyJsPlugin({
-                    cache: true,
-                    parallel: true,
-                    sourceMap: false,
-                }),
-                // Might not be needed with Webpack 5:
-                new OptimizeCSSAssetsPlugin({}),
+                '...',
+                new CssMinimizerPlugin(),
             ] : [],
         },
     };
 
     if (PROD) {
+        // TODO: Should I replace this with https://stackoverflow.com/questions/61490604/inline-css-with-webpack-without-htmlwebpackinlinesourceplugin?
         config.plugins.push(new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin));
     }
 

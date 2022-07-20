@@ -1,11 +1,14 @@
 .app {
-
     &__base {
         position: relative;
         display: flex;
-        // flex-direction: column;
+        flex-direction: column;
+
         // justify-content: space-between;
+        justify-content: center;
+        align-items: center;
         user-select: none;
+
         // max-width: 800px;
         margin: 0 auto;
         font-size: 16px;
@@ -14,8 +17,10 @@
 
     &__main {
         position: relative;
+
         // padding: 16px;
         width: 100%;
+
         // height: 0;
         overflow: hidden;
         display: flex;
@@ -23,27 +28,13 @@
         flex-direction: column;
         justify-content: center;
     }
-    /*
-    &__content {
-        width: 50%;
-        background: #FEE;
-        padding: 128px 32px 32px;
-        box-sizing: border-box;
-    }
-
-    &__container {
-        max-width: 520px;
-        margin: 0 auto;
-    }
-    */
 
     &__link {
         text-align: center;
         font-size: 13px;
         line-height: 13px;
-        border-top: 1px solid #F0F0F0;
+        border-top: 1px solid #f0f0f0;
         padding: 16px;
-        display: block;
         text-decoration: none;
         color: black;
         text-transform: uppercase;
@@ -56,16 +47,16 @@
         }
 
         &Underline {
-            box-shadow: 0 1px 0 0 #00F;
+            box-shadow: 0 1px 0 0 #00f;
         }
 
         &:hover > &Underline {
-            box-shadow: 0 2px 0 0 #00F;
+            box-shadow: 0 2px 0 0 #00f;
         }
     }
 
     &__button {
-        margin: 32px 0 0 0;
+        margin: 32px 0 0;
         padding: 8px 32px;
         background: blue;
         color: white;
@@ -80,12 +71,12 @@
         text-transform: uppercase;
 
         &:hover {
-            background: #00A;
+            background: #00a;
         }
     }
 
     &__error {
-        border: 2px solid #FF8888;
+        border: 2px solid #f88;
         border-radius: 4px;
         margin: 32px 16px 0;
         padding: 8px;

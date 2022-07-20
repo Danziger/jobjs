@@ -1,66 +1,66 @@
 <!DOCTYPE HTML>
 
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
+
+    <meta charSet="UTF-8" />
 
     <title><%= htmlWebpackPlugin.options.title %></title>
 
     <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>" />
     <meta property="og:description" content="<%= htmlWebpackPlugin.options.description %>" />
-    <meta property="og:image" content="https://danziger.github.io/jobjs/screenshots/jobjs.png" />
+    <meta property="og:image" content="https://danziger.github.io/jobjs/static/screenshots/jobjs.png" />
     <meta property="og:image:width" content="928" />
     <meta property="og:image:height" content="928" />
     <meta property="og:image:alt" content="<%= htmlWebpackPlugin.options.title %>" />
     <meta property="og:url" content="https://danziger.github.io/jobjs/" />
+
+    <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.title %>" />
+    <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.description %>" />
+    <meta name="twitter:image" content="https://danziger.github.io/jobjs/static/screenshots/jobjs.png" />
+    <meta name="twitter:site" content="https://danziger.github.io/jobjs/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@gmzcodes" />
+
+    <meta name="title" content="<%= htmlWebpackPlugin.options.title %>" />
+    <meta name="description" content="<%= htmlWebpackPlugin.options.description %>" />
+    <meta name="keywords" content="hire, recruiting, recruitment, recruitmenttools, hrtech, futureofwork, talentacquisition, rectech, HR, hiring, aiinhr" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 
     <link rel="canonical" href="https://danziger.github.io/jobjs/" />
 </head>
 
 <body class="app__base">
 
-    <!--
-    <nav class="app__nav">
-        <h1 class="app__title"><span role="img" aria-label="Briefcase">💼</span> JobJS</h1>
-    </nav>
-
-    <section class="app__content">
-
-        <div class="app__container">
-            <h2>How to generate a job post image using JobJS</h2>
-            <p>Simply fill in the form on the right and click the "download image" button.</p>
-            <p>You can customize the seniority level, role, location, compensation, core techs or skills, all the emojis and your company name, email and logo!</p>
-        </div>
-
-    </section>
-    -->
-
     <section class="app__main" id="main">
         <div class="card__root" id="root">
+            <div class="card__cover" id="cover" hidden></div>
+
             <div class="card__preview" id="preview">
                 <div class="card__content" id="content">
                     <header class="card__header">
                         <div class="card__prop">
-                            <input class="card__inputLine card__input--small card__headerLevel" placeholder="Junior, Mid, Senior, Lead..." />
+                            <input class="card__inputLine card__input--small card__headerLevel" placeholder="Lead, Senior, Mid-Level, Junior..." />
                         </div>
 
                         <div class="card__prop">
-                            <button class="card__icon card__icon--editable card__headerIcon">🧠</button>
-                            <textarea rows="1" class="card__inputText card__input--big card__headerPosition" placeholder="Frontend Engineer, UX Designer..." style="height: 80px; "></textarea>
+                            <button class="card__icon card__icon--editable card__headerIcon">⭐</button>
+                            <textarea rows="1" class="card__inputText card__input--big card__headerPosition" placeholder="Frontend Engineer, UX Designer..." style="height: 64px; "></textarea>
                         </div>
                     </header>
 
                     <ul class="card__props" id="general">
                         <li class="card__prop">
                             <span class="card__icon">🌎</span>
-                            <textarea rows="1" class="card__inputText" placeholder="Remote (CEST ± 4 hours)"></textarea>
+                            <textarea rows="1" class="card__inputText" placeholder="Remote (CET ± 4 hours)"></textarea>
                         </li>
 
                         <li class="card__prop">
                             <span class="card__icon">💶</span>
-                            <input class="card__inputLine" placeholder="50 - 100K € + 0.01 - 0.01 %" />
+                            <textarea rows="1" class="card__inputText" placeholder="50 - 100K €"></textarea>
                         </li>
 
                         <li class="card__prop">
@@ -71,8 +71,8 @@
 
                     <ul class="card__props" id="additional">
                         <li class="card__prop">
-                            <button class="card__icon card__icon--editable">👉</button>
-                            <textarea rows="1" class="card__inputText" placeholder="Add additional information about this role"></textarea>
+                            <button class="card__icon card__icon--editable">·</button>
+                            <textarea rows="1" class="card__inputText" placeholder="Add additional information about this role."></textarea>
                         </li>
                     </ul>
 
@@ -84,52 +84,14 @@
 
                         <div class="card__inputLine card__input--small card__input--resizer card__footerInput"></div>
 
-                        <input class="card__inputLine card__input--small card__input--resizable card__footerInput" placeholder="Your Company" style="width: 130px;" />
+                        <input class="card__inputLine card__input--small card__input--resizable card__footerInput" placeholder="Your Company" style="width: 117px;" />
                         <input class="card__inputLine card__input--small card__footerInput" placeholder="careers@yourcompany.com" />
                     </footer>
                 </div>
 
-                <div class="card__attribution">Get yours at https://danziger.github.io/jobjs</div>
+                <div class="card__attribution">Get yours at https://danziger.github.io/jobjs/</div>
             </div>
 
-            <!--<div class="panel__root">
-                <div class="panel__popup">
-                    <header class="panel__header">
-                        <h2 class="panel__title">Salary Options</h2>
-                    </header>
-
-                    <div class="panel__content">
-
-                        <div class="panel__fieldset">
-                            <div class="panel__legend">Base Salary</div>
-
-                            <label class="panel__label">
-                                <span class="panel__labelText">From</span>
-                                <input class="panel__input" placeholder="From" />
-                            </label>
-
-                            <label class="panel__label">
-                                <span class="panel__labelText">To</span>
-                                <input class="panel__input" placeholder="To" />
-                            </label>
-                        </div>
-
-                        <div class="panel__fieldset">
-                            <div class="panel__legend">Equity</div>
-
-                            <label class="panel__label">
-                                <span class="panel__labelText">From</span>
-                                <input class="panel__input" placeholder="From" />
-                            </label>
-
-                            <label class="panel__label">
-                                <span class="panel__labelText">To</span>
-                                <input class="panel__input" placeholder="To" />
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
         </div>
 
         <button class="app__button" id="screenshotButton">Download</button>
