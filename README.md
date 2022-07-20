@@ -43,21 +43,23 @@ Ongoing Work (TODOs)
 --------------------
 
 **TODO:**
-- 2x screenshots?
-- Add screenshot mode.
+- Nav and footer similar to SlotJS.
+- Customizable icons with menu: https://github.com/joeattardi/emoji-button
+- Constantly save data (display a spinner)?
+- Validate if additional props fit.
 
 **V0:**
-- Keys navigation.
+- 2x screenshots?
+- Add screenshot mode.
 - Customizable image with menu.
-- Customizable icons with menu: https://github.com/joeattardi/emoji-button
+- Keys navigation.
 
 **V1:**
-- Constantly save data (display a spinner)?
 - Location and salary menus.
 - Basic props validator.
 - Drag and drop (resort).
 - Add main language.
-- Accept icons or images indistinctively.
+- Accept icons or images indistinctive.
 
 <br />
 

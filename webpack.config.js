@@ -85,7 +85,7 @@ module.exports = (env, argv) => {
                 template: path.resolve(__dirname, 'src/app/templates/index.html'),
                 title: 'JobJS \\ Sharable image summaries for your open positions',
                 description: 'Share your jobs as an image on LinkedIn and Instagram to get a visibility boost and more applicants!',
-                favicon: path.resolve(__dirname, 'static/favicon.ico'),
+                // favicon: path.resolve(__dirname, 'static/favicon.ico'),
                 inlineSource: '.(js|css)$', // Inline JS and CSS.
                 minify: PROD,
                 meta: {

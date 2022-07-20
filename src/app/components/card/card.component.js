@@ -175,14 +175,16 @@ export class Card {
         const { SIZE } = Card;
 
         // Scale to fit vertically and horizontally:
-        // this.preview.style.transform = `scale(${ Math.min(root.offsetWidth, root.offsetHeight, SIZE) / SIZE })`;
+        this.preview.style.transform = `scale(${ Math.min(root.offsetWidth, root.offsetHeight, SIZE) / SIZE })`;
 
         // Scale to fit horizontally only:
+        /*
         const scale = Math.min(root.offsetWidth, SIZE) / SIZE;
         const height = SIZE * scale;
 
         this.root.style.height = `${ height }px`;
         this.preview.style.transform = `scale(${ scale })`;
+        */
     }
 
     checkInputs(input) {
