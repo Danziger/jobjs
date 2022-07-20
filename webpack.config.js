@@ -42,10 +42,20 @@ module.exports = (env, argv) => {
         },
 
         devServer: {
-            contentBase: path.resolve(__dirname, 'static'),
-            publicPath: '/jobjs/',
-            // When sharing the site using ssh -R 80:localhost:8080 ssh.localhost.run
-            // disableHostCheck: true,
+            static: {
+                directory: path.resolve(__dirname, 'static'),
+            },
+            devMiddleware: {
+                publicPath: '/jobjs/',
+                // When sharing the site using ssh -R 80:localhost:8080 ssh.localhost.run
+                // disableHostCheck: true,
+            },
+            client: {
+                overlay: {
+                    warnings: false,
+                    errors: false,
+                },
+            },
         },
 
         module: {
