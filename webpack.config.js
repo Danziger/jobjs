@@ -1,9 +1,10 @@
 const path = require('path');
+
 const webpack = require('webpack');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
@@ -49,16 +50,6 @@ module.exports = (env, argv) => {
 
         module: {
             rules: [{
-                enforce: 'pre',
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'eslint-loader',
-                    options: {
-                        fix: true,
-                    },
-                },
-            }, {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
@@ -69,12 +60,12 @@ module.exports = (env, argv) => {
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
-                    'postcss-loader',{
-                      loader: 'resolve-url-loader',
-                      options: {
-                        attempts: 1,
-                        sourceMap: false,
-                      },
+                    'postcss-loader', {
+                        loader: 'resolve-url-loader',
+                        options: {
+                            attempts: 1,
+                            sourceMap: false,
+                        },
                     }, {
                         loader: 'sass-loader',
                         options: { sourceMap: true },
@@ -94,6 +85,7 @@ module.exports = (env, argv) => {
         },
 
         plugins: [
+            new ESLintPlugin({ fix: true }),
             new HtmlWebpackPlugin({
                 filename: path.resolve(__dirname, 'dist/index.html'),
                 template: path.resolve(__dirname, 'src/app/templates/index.html'),
@@ -118,8 +110,10 @@ module.exports = (env, argv) => {
             }),
 
             new CopyWebpackPlugin([{
-                from: 'static/screenshots',
-                to: 'static/screenshots',
+                patterns: [{
+                    from: 'static/screenshots',
+                    to: 'static/screenshots',
+                }],
             }]),
 
             // Defines variables available globally that Webpack can evaluate in compilation time and remove dead code:
@@ -127,13 +121,15 @@ module.exports = (env, argv) => {
 
             // Same as before, but sets properties inside `process.env` specifically:
             new webpack.EnvironmentPlugin({
-              DEV,
-              PROD,
+                DEV,
+                PROD,
             }),
             // new BundleAnalyzerPlugin(),
         ],
 
         optimization: {
+            minimize: true,
+
             // Extract all styles in a single file:
             splitChunks: {
                 cacheGroups: {
@@ -147,14 +143,8 @@ module.exports = (env, argv) => {
             },
 
             minimizer: PROD ? [
-                new UglifyJsPlugin({
-                    cache: true,
-                    parallel: true,
-                    sourceMap: PROD,
-                }),
-
-                // Might not be needed with Webpack 5:
-                new OptimizeCSSAssetsPlugin({}),
+                '...',
+                new CssMinimizerPlugin(),
             ] : [],
         },
     };
