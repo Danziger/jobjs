@@ -3,16 +3,11 @@
         position: relative;
         display: flex;
         flex-direction: column;
-
-        // justify-content: space-between;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
         user-select: none;
-
-        // max-width: 800px;
-        margin: 0 auto;
         font-size: 16px;
         line-height: 16px;
+        overflow: hidden;
     }
 
     &__main {
@@ -52,26 +47,6 @@
 
         &:hover > &Underline {
             box-shadow: 0 2px 0 0 #00f;
-        }
-    }
-
-    &__button {
-        margin: 32px 0 0;
-        padding: 8px 32px;
-        background: blue;
-        color: white;
-        border-radius: 512px;
-        font-family: monospace;
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: bold;
-        border: 0;
-        outline: none;
-        cursor: pointer;
-        text-transform: uppercase;
-
-        &:hover {
-            background: #00a;
         }
     }
 

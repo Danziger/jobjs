@@ -43,10 +43,10 @@ Ongoing Work (TODOs)
 --------------------
 
 **TODO:**
-- Nav and footer similar to SlotJS.
 - Customizable icons with menu: https://github.com/joeattardi/emoji-button
 - Constantly save data (display a spinner)?
 - Validate if additional props fit.
+- Add expanded description / instructions if it's the first visit to the page.
 
 **V0:**
 - 2x screenshots?

@@ -1,0 +1,134 @@
+@import '../../styles/mixins/media-queries';
+@import '../../styles/utils/focus';
+
+.footer {
+    $root: &;
+
+    &__base {
+        position: relative;
+        background: #fff;
+        z-index: 10;
+        transform: translateZ(0);
+        border-top: 1px solid #f0f0f0; // TODO: Create var
+        font-family: 'Press Start 2P', monospace;
+    }
+
+    &__content {
+        max-width: 800px; // TODO: Create var
+        margin: 0 auto;
+        display: flex;
+        list-style: none;
+        padding: 0;
+    }
+
+    &__option {
+        flex: 1 0 auto;
+    }
+
+    &__optionSpacer {
+        position: relative;
+        width: 100%;
+        border-right: 1px solid #f0f0f0;
+        box-shadow: inset -1px 0 0 0 #fff, inset 1px 0 0 0 #f0f0f0, inset 0 0 0 1px #fff;
+        background:
+            repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 4px,
+                #f0f0f0 4px,
+                #f0f0f0 5px
+            );
+    }
+
+    &__link,
+    &__button {
+        position: relative;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 52px;
+        line-height: 32px;
+        box-sizing: border-box;
+        text-transform: uppercase;
+
+        #{$focusVisible} &:focus::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            bottom: 4px;
+            left: 4px;
+            border: 1px dotted black;
+        }
+    }
+
+    &__link {
+        padding: 8px 16px 28px;
+        font-size: 9px;
+        text-decoration: none;
+        color: black;
+
+        #{$root}__option + #{$root}__option > & {
+            border-left: 1px solid #f0f0f0;
+        }
+
+        &Icon {
+            width: 16px;
+            image-rendering: pixelated;
+            transition: transform ease-in 0.125s;
+
+            @include above(sm) {
+                margin-right: 16px;
+            }
+        }
+
+        &:hover > &Icon {
+            image-rendering: auto;
+            transform: scale(1.4);
+        }
+
+        &Text {
+            display: none;
+
+            @include above(sm) {
+                display: block;
+            }
+        }
+    }
+
+    &__button {
+        padding: 8px 8px 28px;
+        border: 0;
+        background: transparent;
+        outline: none;
+        cursor: pointer;
+        font-family: 'Press Start 2P', monospace;
+
+        &Icon {
+            image-rendering: pixelated;
+            transition: transform ease-in 0.125s;
+            font-size: 16px;
+            margin-right: 16px;
+            width: 16px;
+            height: 16px;
+            line-height: 1;
+            transform: translate(0, -3px);
+        }
+
+        &:hover > &Icon {
+            image-rendering: auto;
+            transform: translate(0, -3px) scale(1.4);
+        }
+
+        &Text {
+            display: block;
+            font-size: 9px;
+            text-align: left;
+        }
+
+        #{$root}__option + #{$root}__option > & {
+            border-left: 1px solid #f0f0f0;
+        }
+    }
+}
