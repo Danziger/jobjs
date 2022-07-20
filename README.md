@@ -39,27 +39,26 @@ Don't hesitate to report any issue you find in this website/project by opening a
 <br />
 
 
-Ongoing Work (TODOs)
---------------------
+TODOs
+-----
 
-**TODO:**
-- Customizable icons with menu: https://github.com/joeattardi/emoji-button
-- Constantly save data (display a spinner)?
-- Validate if additional props fit.
+- Emoji picker.
+  - https://github.com/joeattardi/emoji-button
+  - https://www.npmjs.com/package/emoji-picker-element
+
+- Accept icons or images indistinctive.
+
+- Optionally keep data in localStorage.
+
+- Validate if all additional props fit.
+
 - Add expanded description / instructions if it's the first visit to the page.
 
-**V0:**
-- 2x screenshots?
-- Add screenshot mode.
-- Customizable image with menu.
-- Keys navigation.
+- Move error message to a floating panel in the footer.
 
-**V1:**
-- Location and salary menus.
-- Basic props validator.
-- Drag and drop (resort).
-- Add main language.
-- Accept icons or images indistinctive.
+- 2x screenshots?
+
+- Improve keyboard navigation.
 
 <br />
 
