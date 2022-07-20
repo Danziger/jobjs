@@ -3,9 +3,9 @@
 <p align="center">
     💼 Job description images generator mobile-first SPA built with JavaScript and Emojis!
 </p><p align="center">
-    🚀 Try it out at <a href="https://danziger.github.io/jobjs">danziger.github.io/jobjs</a>!
+    🚀 Try it out at <a href="https://swyg.com/apps/jobjs/">swyg.com/apps/jobjs/</a>!
 </p><p align="center">
-    🔥 Looking for the very best engineers? Get in touch with us <a href="https://bravalab.com">bravalab.com</a>!
+    📦 Project originally imported from https://github.com/Danziger/jobjs (private repo under the MIT license).
 </p><p align="center">
     💩 No IE or Edge.
 </p>
@@ -26,6 +26,9 @@ Running It (Development)
 ------------------------
 
 Take a look at `package.json`, the scripts are self-explanatory.
+
+In short, `npm start` and the project will be accessible at http://localhost:8080/jobjs/.
+
 
 <br />
 
@@ -57,22 +60,3 @@ Ongoing Work (TODOs)
 - Drag and drop (resort).
 - Add main language.
 - Accept icons or images indistinctively.
-
-
-<br />
-
-
-Author
-------
-
-<img
-    src="https://s.gravatar.com/avatar/ff1de7f1a325c8005379a310949f7f23?s=128"
-    alt="Dani Gámez Franco"
-    align="left"
-/>
-
-Dani Gámez Franco
-
-LinkedIn: https://www.linkedin.com/in/danigamezfranco/
-
-Stack Overflow: https://stackoverflow.com/users/3723993/danziger

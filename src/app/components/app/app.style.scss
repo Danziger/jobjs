@@ -23,19 +23,6 @@
         flex-direction: column;
         justify-content: center;
     }
-    /*
-    &__content {
-        width: 50%;
-        background: #FEE;
-        padding: 128px 32px 32px;
-        box-sizing: border-box;
-    }
-
-    &__container {
-        max-width: 520px;
-        margin: 0 auto;
-    }
-    */
 
     &__link {
         text-align: center;
@@ -65,22 +52,35 @@
     }
 
     &__button {
+        font-family: 'Sul Sans', sans-serif;
         margin: 32px 0 0 0;
-        padding: 8px 32px;
-        background: blue;
+        border: 1px solid #fc7917;
+        background: #fc7917;
         color: white;
-        border-radius: 512px;
-        font-family: monospace;
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: bold;
-        border: 0;
+        border-radius: 4px;
         outline: none;
         cursor: pointer;
-        text-transform: uppercase;
+        padding: 4px 16px;
+        height: 48px;
+
+        transition: color ease-in-out 300ms,
+            background-color ease-in-out 300ms,
+            opacity ease-in-out 300ms,
+            border-color ease-in-out 300ms;
+        
+            
+        font-size: 13px;
+        font-weight: 500;
+
+        @media (min-width: 768px) {
+            padding: 4px 32px;
+            height: 66px;
+            font-size: 18px;
+        }
 
         &:hover {
-            background: #00A;
+            color: #fc7917;
+            background: transparent;
         }
     }
 
