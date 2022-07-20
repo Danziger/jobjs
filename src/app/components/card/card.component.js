@@ -62,7 +62,7 @@ export class Card {
         // Resize any textarea with multiline placeholders:
         Array.from(document.querySelectorAll('.card__inputText')).forEach(resizeTextarea);
 
-        // For some reason, doint this a single time doesn't work well on iframes:
+        // For some reason, doing this a single time doesn't work well on iframes:
         setTimeout(() => {
             Array.from(document.querySelectorAll('.card__inputText')).forEach(resizeTextarea);
         }, 200);

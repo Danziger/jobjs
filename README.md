@@ -58,3 +58,21 @@ Ongoing Work (TODOs)
 - Drag and drop (resort).
 - Add main language.
 - Accept icons or images indistinctively.
+
+<br />
+
+
+Author
+------
+
+<img
+    src="https://s.gravatar.com/avatar/ff1de7f1a325c8005379a310949f7f23?s=128"
+    alt="Dani Gámez Franco"
+    align="left"
+/>
+
+Dani Gámez Franco
+
+LinkedIn: https://www.linkedin.com/in/danigamezfranco/
+
+Stack Overflow: https://stackoverflow.com/users/3723993/danziger
