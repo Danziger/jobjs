@@ -1,11 +1,9 @@
 <h1 align="center">JobJS</h1>
 
 <p align="center">
-    💼 Job description images generator mobile-first SPA built with JavaScript and Emojis!
+    💼 Sharable image summaries for your open positions: Share your jobs as an image on LinkedIn and Instagram to get a visibility boost and more applicants!
 </p><p align="center">
-    🚀 Try it out at <a href="https://swyg.com/apps/jobjs/">swyg.com/apps/jobjs/</a>!
-</p><p align="center">
-    📦 Project originally imported from https://github.com/Danziger/jobjs (private repo under the MIT license).
+    🚀 Try it out at <a href="https://danziger.github.io/jobjs">danziger.github.io/jobjs</a>!
 </p><p align="center">
     💩 No IE or Edge.
 </p>
