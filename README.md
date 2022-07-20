@@ -34,7 +34,7 @@ In short, `npm start` and the project will be accessible at http://localhost:808
 Reporting a problem
 -------------------
 
-Don't hesitate to report any issue you find in this website/project by opening a new issue in this repository, but please make sure that problem hasn't been reported before by another user.
+Don't hesitate to report any issue you find in this website/project by opening a new issue in this repository, but please make sure that problem hasn't been reported before by another user as an Issue or already appears in the TODOs below.
 
 <br />
 
