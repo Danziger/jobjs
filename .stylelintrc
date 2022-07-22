@@ -13,6 +13,7 @@
         "scss/comment-no-empty": null,
         "scss/no-global-function-names": null,
         "max-line-length": 160,
-        "no-descending-specificity": null
+        "no-descending-specificity": null,
+        "selector-class-pattern": null
     }
 }

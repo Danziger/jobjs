@@ -111,7 +111,7 @@ export class Card {
     enableScreenshotMode() {
         this.screenshotModeEnabled = true;
 
-        this.cover.removeAttribute('hidden');
+        this.cover.classList.add('isActive');
         this.preview.removeAttribute('style');
 
         this.inputs.forEach((input) => {
@@ -142,7 +142,7 @@ export class Card {
     disableScreenshotMode() {
         this.screenshotModeEnabled = false;
 
-        this.cover.setAttribute('hidden', true);
+        this.cover.classList.remove('isActive');
         this.resizeCard();
 
         this.inputs.forEach((input) => {
