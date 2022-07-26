@@ -181,6 +181,7 @@ export class Card {
 
         // Scale to fit vertically and horizontally:
         this.preview.style.setProperty('--previewScale', Math.min(root.offsetWidth, root.offsetHeight, SIZE) / SIZE);
+        this.cover.style.setProperty('--coverScale', Math.min(root.offsetHeight, SIZE) / SIZE);
 
         // Scale to fit horizontally only:
         /*

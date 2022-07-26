@@ -42,8 +42,6 @@ Don't hesitate to report any issue you find in this website/project by opening a
 TODOs
 -----
 
-- Make logo background transparent.
-
 - Disable hover effect on touch devices.
 
 - Avoid resize on mobile when the keyboard opens, just scroll to the right input.
