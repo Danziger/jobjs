@@ -233,6 +233,13 @@
         // Uncomment to render a grid:
         // background-image: linear-gradient(0deg, #ffffff 25%, #ffdddd 25%, #ffdddd 50%, #ffffff 50%, #ffffff 75%, #ffdddd 75%, #ffdddd 100%);
         // background-size: 32px 32px;
+
+        &.screenshotEnabled {
+            position: relative;
+            top: auto;
+            left: auto;
+            transform: none;
+        }
     }
 
     &__content {

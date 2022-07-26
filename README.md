@@ -46,6 +46,8 @@ TODOs
 
 - Disable hover effect on touch devices.
 
+- Avoid resize on mobile when the keyboard opens, just scroll to the right input.
+
 - Emoji picker.
   - https://github.com/joeattardi/emoji-button
   - https://www.npmjs.com/package/emoji-picker-element
