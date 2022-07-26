@@ -45,8 +45,8 @@
 
     <%- include ../header/header.template.ejs %>
 
-    <section class="app__main" id="main">
-        <div class="card__root" id="root">
+    <main class="app__main" id="main">
+        <div class="card__root isLoading" id="root">
             <div class="card__cover" id="cover">
                 <div class="card__coverCard"></div>
             </div>
@@ -107,7 +107,10 @@
         </div>
 
         <div class="app__error" id="errorBox" hidden>Oops, something went wrong. Please, try with a different browser.</div>
-    </section>
+    </main>
+
+    <div class="app__coverLeft"></div>
+    <div class="app__coverRight"></div>
 
     <%- include ../footer/footer.template.ejs %>
 

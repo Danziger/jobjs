@@ -152,8 +152,7 @@
     &__root {
         position: relative;
         box-sizing: border-box;
-
-        // height: 100%;
+        height: 100%;
         width: 100%;
         display: flex;
         align-items: center;
@@ -161,6 +160,12 @@
         overflow: hidden;
         flex-direction: column;
         font-family: 'DM Mono', monospace;
+        transition: all ease-in 0.125s;
+
+        &.isLoading {
+            opacity: 0;
+            transform: translate(0, 16px);
+        }
     }
 
     &__cover {
@@ -213,7 +218,10 @@
     }
 
     &__preview {
-        position: relative;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(var(--previewScale, 1));
         width: 552px;
         height: 552px;
         min-width: 552px;

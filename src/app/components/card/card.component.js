@@ -56,6 +56,9 @@ export class Card {
         this.preview = document.getElementById('preview');
         this.additional = document.getElementById('additional');
 
+        // Make the card visible:
+        this.root.classList.remove('isLoading');
+
         // Resize the card to keep image/text proportion:
         this.resizeCard();
 
@@ -175,7 +178,7 @@ export class Card {
         const { SIZE } = Card;
 
         // Scale to fit vertically and horizontally:
-        this.preview.style.transform = `scale(${ Math.min(root.offsetWidth, root.offsetHeight, SIZE) / SIZE })`;
+        this.preview.style.setProperty('--previewScale', Math.min(root.offsetWidth, root.offsetHeight, SIZE) / SIZE);
 
         // Scale to fit horizontally only:
         /*
