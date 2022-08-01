@@ -23,10 +23,9 @@
 Running It (Development)
 ------------------------
 
-Take a look at `package.json`, the scripts are self-explanatory.
+Take a look at `package.json`, the scripts are self-explanatory, but otherwise `npm install` and `npm start` work in `90%` of teh cases :D
 
-In short, `npm start` and the project will be accessible at http://localhost:8080/jobjs/.
-
+The project will be accessible at http://localhost:8080/jobjs/.
 
 <br />
 
