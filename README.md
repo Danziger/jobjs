@@ -69,6 +69,28 @@ TODOs
 <br />
 
 
+Some other sites I've built
+---------------------------
+
+- **[GMZCODES](https://gmzcodes.com/)**
+
+  👨‍💻 Dani Gamez's personal website PWA built using JavaScript, SCSS and HTML5.
+
+- **[Stylophone.js](https://danziger.github.io/stylophonejs/)**
+
+  🎹 The classic Stylophone, now in your phone and computer.
+
+- **[Key.js](https://keyjs.dev)**
+
+  ⌨ Press any key to get the JavaScript keyboard event event key, code, which, keyCode and more properties!
+
+- **[Slot.js](https://danziger.github.io/slotjs/)**
+
+  🎰 Circular slot machine mobile-first SPA built with JavaScript, CSS variables and Emojis!
+
+<br />
+
+
 Author
 ------
 
